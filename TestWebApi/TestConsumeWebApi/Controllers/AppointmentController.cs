@@ -24,7 +24,7 @@ namespace TestConsumeWebApi.Controllers
             try
             {
                 var client = new HttpClient();
-                var getDataTask = client.GetAsync("http://localhost:54472/api/appointments")
+                var getDataTask = client.GetAsync("http://localhost:65189/api/appointments")
                     .ContinueWith(response =>
                     {
                         var result = response.Result;
@@ -63,7 +63,7 @@ namespace TestConsumeWebApi.Controllers
             try
             {
                 var client = new HttpClient();
-                var getDataTask = client.GetAsync("http://localhost:54472/api/appointments/" + id)
+                var getDataTask = client.GetAsync("http://localhost:65189/api/appointments/" + id)
                     .ContinueWith(response =>
                     {
                         var result = response.Result;
@@ -105,7 +105,7 @@ namespace TestConsumeWebApi.Controllers
 
                 StringContent content = new StringContent(JsonConvert.SerializeObject(resultList), Encoding.UTF8, "application/json");
 
-                var getDataTask = client.PostAsync("http://localhost:54472/api/appointments/", content)
+                var getDataTask = client.PostAsync("http://localhost:65189/api/appointments/", content)
                     .ContinueWith(response =>
                     {
                         var result = response.Result;
@@ -132,7 +132,7 @@ namespace TestConsumeWebApi.Controllers
             try
             {
                 var client = new HttpClient();
-                var getDataTask = client.GetAsync("http://localhost:54472/api/appointments/" + id)
+                var getDataTask = client.GetAsync("http://localhost:65189/api/appointments/" + id)
                     .ContinueWith(response =>
                     {
                         var result = response.Result;
@@ -169,7 +169,7 @@ namespace TestConsumeWebApi.Controllers
 
                 StringContent content = new StringContent(JsonConvert.SerializeObject(patDataNew), Encoding.UTF8, "application/json");
 
-                var getDataTask = client.PutAsync("http://localhost:54472/api/appointments", content)
+                var getDataTask = client.PutAsync("http://localhost:65189/api/appointments", content)
                     .ContinueWith(response =>
                     {
                         var result = response.Result;
@@ -197,7 +197,7 @@ namespace TestConsumeWebApi.Controllers
             try
             {
                 var client = new HttpClient();
-                var getDataTask = client.DeleteAsync("http://localhost:54472/api/appointments/" + id)
+                var getDataTask = client.DeleteAsync("http://localhost:65189/api/appointments/" + id)
                     .ContinueWith(response =>
                     {
                         var result = response.Result;

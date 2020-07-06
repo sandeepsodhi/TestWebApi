@@ -1,5 +1,7 @@
 ﻿@model List<TestConsumeWebApi.ApiDTO.Patient>
 
+<a href="/Patient" class="btn btn-primary">Go Back</a>
+
 <div style="margin-top:5%">
     <form href="/Patient/AddPatient" method="post">
         <div class="form-group">
@@ -8,11 +10,11 @@
         </div>
         <div class="form-group">
             <label for="FirstName" class="col-sm-2">First Name</label>
-            <input class="form-control" name="FirstName" required />
+            <input class="form-control" name="FirstName" maxlength="50" required />
         </div>
         <div class="form-group">
             <label for="LastName" class="col-sm-2">Last Name</label>
-            <input class="form-control" name="LastName" required />
+            <input class="form-control" name="LastName" required maxlength="50"/>
         </div>
         <div class="form-group">
             <label for="DateOfBirth" class="col-sm-2">Date of birth</label>
@@ -36,7 +38,7 @@
                         <td>@item.Id</td>
                         <td>@item.FirstName</td>
                         <td>@item.LastName</td>
-                        <td>@item.DateOfBirth</td>
+                        <td>@item.DateOfBirth.Date</td>
                     </tr>
                 }
             </tbody>

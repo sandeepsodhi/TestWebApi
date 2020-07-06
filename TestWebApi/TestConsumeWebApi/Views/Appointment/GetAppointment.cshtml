@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "GetAppointment";
 }
+    <a href="/Appointment" class="btn btn-primary">Go Back</a>
 
 <h2>GetAppointment</h2>
 
@@ -26,9 +27,13 @@
                 <td>@Model.Id</td>
                 <td>@Model.PatientId</td>
                 <td>@Model.Notes</td>
-                <td>@Model.AppointmentTime</td>
+                <td>@Model.AppointmentTime.Date</td>
             </tr>
         </tbody>
     </table>
+}
+else
+{
+    <h2>Enter valid appointment id to get data.</h2>
 }
 

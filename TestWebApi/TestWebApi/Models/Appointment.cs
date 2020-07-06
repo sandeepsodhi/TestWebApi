@@ -10,6 +10,7 @@ namespace TestWebApi.Models
     {
         public int Id { get; set; }
         public int PatientId { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime AppointmentTime { get; set; }
         [StringLength(200)]
         public string Notes { get; set; }

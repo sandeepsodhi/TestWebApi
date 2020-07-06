@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "GetPatient";
 }
-
+    <a href="/Patient" class="btn btn-primary">Go Back</a>
 <h2>GetPatient</h2>
 
 <form method="post">
@@ -11,7 +11,7 @@
         <label for="Id">Id</label>
         <input class="form-control" name="Id" required />
     </div>
-    <div class="text-center">
+    <div>
         <button type="submit" class="btn btn-primary">Get Patient</button>
     </div>
 </form>
@@ -26,8 +26,12 @@
                 <td>@Model.Id</td>
                 <td>@Model.FirstName</td>
                 <td>@Model.LastName</td>
-                <td>@Model.DateOfBirth</td>
+                <td>@Model.DateOfBirth.Date</td>
             </tr>
         </tbody>
     </table>
+}
+else
+{
+    <h2>Enter valid patient id to get data!</h2>
 }

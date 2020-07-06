@@ -10,7 +10,7 @@ using TestWebApi.Models;
 
 namespace TestWebApi.Controllers
 {
-    [EnableCors(origins: "http://localhost:55413", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost:65212", headers: "*", methods: "*")]
     public class PatientsController : ApiController
     {
 
