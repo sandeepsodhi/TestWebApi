@@ -1,0 +1,38 @@
+﻿@model List<TestConsumeWebApi.ApiDTO.Appointment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Appointment</h2>
+
+<a href="/Appointment/GetAppointment" class="btn btn-primary">Get appointment by id</a>
+<a href="/Appointment/AddAppointment" class="btn btn-primary">Add appointment</a>
+
+<h2>List of appointments</h2>
+<table class="table table-striped table-bordered">
+    <thead><tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Date of birth</td></tr></thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentTime)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdateAppointment", new { id = item.Id })
+                    | @Html.ActionLink("Delete", "DeleteAppointment", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

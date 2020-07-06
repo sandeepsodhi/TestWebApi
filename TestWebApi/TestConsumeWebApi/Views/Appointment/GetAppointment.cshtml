@@ -1,0 +1,34 @@
+﻿@model TestConsumeWebApi.ApiDTO.Appointment
+
+@{
+    ViewBag.Title = "GetAppointment";
+}
+
+<h2>GetAppointment</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Id">Id</label>
+        <input class="form-control" name="Id" required />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Get Appointment</button>
+    </div>
+</form>
+
+@if (Model != null)
+{
+    <h2>Get Appointment</h2>
+    <table class="table table-bordered table-striped">
+        <thead><tr><th>Id</th><th>Patient Id</th><th>Notes</th> <th>Appointment Time</th></tr></thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.PatientId</td>
+                <td>@Model.Notes</td>
+                <td>@Model.AppointmentTime</td>
+            </tr>
+        </tbody>
+    </table>
+}
+

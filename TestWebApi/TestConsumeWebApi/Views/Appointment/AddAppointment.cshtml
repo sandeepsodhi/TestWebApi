@@ -1,0 +1,51 @@
+﻿@model List<TestConsumeWebApi.ApiDTO.Appointment>
+
+@{
+    ViewBag.Title = "AddAppointment";
+}
+
+<div style="margin-top:5%">
+    <form href="/Patient/AddAppointment" method="post">
+        <div class="form-group">
+            <label for="Id" class="col-sm-2">Id</label>
+            <input class="form-control" name="Id" required />
+        </div>
+        <div class="form-group">
+            <label for="PatientId" class="col-sm-2">Patient Id</label>
+            <input class="form-control" name="PatientId" required />
+        </div>
+        <div class="form-group">
+            <label for="Notes" class="col-sm-2">Notes</label>
+            <input class="form-control" name="Notes" required />
+        </div>
+        <div class="form-group">
+            <label for="AppointmentTime" class="col-sm-2">Appointment Time</label>
+            <input class="form-control" name="AppointmentTime" required type="date" />
+        </div>
+        <div class="panel-body">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+
+
+
+    @if (Model != null)
+    {
+        <h2>Following Appointment has been added</h2>
+        <table class="table table-striped table-bordered ">
+            <thead><tr><th>Id</th><th>First Name</th><th>Last Name</th><th>Date of birth</th>></tr></thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.PatientId</td>
+                        <td>@item.Notes</td>
+                        <td>@item.AppointmentTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>

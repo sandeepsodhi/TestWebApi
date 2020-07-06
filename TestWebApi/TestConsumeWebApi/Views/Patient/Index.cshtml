@@ -1,0 +1,63 @@
+﻿@model List<TestConsumeWebApi.ApiDTO.Patient>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Patient</h2>
+
+<a href="/Patient/GetPatient" class="btn btn-primary">Get Patient by Id</a>
+<a href="/Patient/AddPatient" class="btn btn-primary">Add Patient</a>
+<a id="getinfo" class="btn btn-primary">Get Device info</a>
+
+<h4><label id="fullinfolbl" style="display:none">Client device info is: <label id="infoAPI"></label></label></h4>
+
+<h2>Patient Details </h2>
+<table class="table table-striped table-bordered">
+    <thead><tr><td>Id</td><td>First Name</td><td>Last Name</td><td>Date of birth</td></tr></thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UpdatePatient", new { id = item.Id })
+                    | @Html.ActionLink("Delete", "DeletePatient", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+            $('#getinfo').click(function () {
+                        $.ajax({
+                            type: 'GET',
+                            url: 'http://localhost:54472/api/GetDeviceInfo',
+                            dataType: 'json',
+                            success: function (data) {
+                                $("#fullinfolbl").show();
+                                $("#infoAPI").text(data);
+                                console.log(data);
+
+                            },
+                            error: function () {
+                                console.log("something went wrong with the api!");
+                            }
+                        });
+            });
+
+    });
+</script>

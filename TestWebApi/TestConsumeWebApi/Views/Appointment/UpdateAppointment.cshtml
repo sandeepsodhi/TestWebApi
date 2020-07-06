@@ -1,0 +1,50 @@
+﻿@model TestConsumeWebApi.ApiDTO.Appointment
+
+@{
+    ViewBag.Title = "UpdateAppointment";
+}
+
+
+<div style="margin-top:5%">
+    @if (Model != null && ViewBag.Result != "Success")
+    {
+        <form method="post">
+            <div class="form-group">
+                <label for="Id" class="col-sm-2">Id</label>
+                @Html.TextBoxFor(m => m.Id, new { @readonly = "readonly", @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="PatientId" class="col-sm-2">Patient Id</label>
+                @Html.TextBoxFor(m => m.PatientId, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="Notes" class="col-sm-2">Notes</label>
+                @Html.TextBoxFor(m => m.Notes, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="AppointmentTime" class="col-sm-2">Appointment Time</label>
+                @Html.TextBoxFor(m => m.AppointmentTime, new { @class = "form-control" })
+            </div>
+            <div class="panel-body">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    }
+
+    @if (ViewBag.Result == "Success")
+    {
+        <h2>Appointment data successfully updated</h2>
+        <table class="table table-striped">
+            <thead><tr><th>Id</th><th>Patient Id</th><th>Notes</th><th>Appointment Time</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Id</td>
+                    <td>@Model.PatientId</td>
+                    <td>@Model.Notes</td>
+                    <td>@Model.AppointmentTime</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+</div>
