@@ -4,7 +4,9 @@
 @{
     ViewBag.Title = "Update Patient";
 }
+<div style="margin-top:2%">
     <a href="/Patient" class="btn btn-primary">Go Back</a>
+</div>
 
 <div style="margin-top:5%">
     @if (Model != null && ViewBag.Result != "Success")
@@ -16,11 +18,11 @@
             </div>
             <div class="form-group">
                 <label for="FirstName" class="col-sm-2">First Name</label>
-                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", maxlength=200 })
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", maxlength = 200 })
             </div>
             <div class="form-group">
                 <label for="LastName" class="col-sm-2">Last Name</label>
-                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" , maxlength=200})
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", maxlength = 200 })
             </div>
             <div class="form-group">
                 <label for="DateOfBirth" class="col-sm-2">Date of birth</label>
